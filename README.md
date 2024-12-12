@@ -44,7 +44,7 @@ Push Strava goals to TRMNL
    - This will save the access and refresh token in a `.strava-credentials` locally so that you don't have to authorize the app again
 
 7. Schedule the script:
-  - Use `crontab -e` to schedule the script to run every day
+   - Use `crontab -e` to schedule the script to run every day
 
 ## Contributing
 
