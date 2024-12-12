@@ -37,9 +37,9 @@ Push Strava goals to TRMNL
    ```bash
    python send_strava_goals_to_trmnl.py
    ```
-   - On first run, you'll be prompted to authorize the application in your browser
+   - The first time, you'll be prompted to authorize the application in your browser
    - When you authorize it, Strava will redirect you back to `http://localhost:8000?code=your_strava_authorization_code`
-   - Copy the code and paste it into the `Enter the code from the redirect URL:` prompt
+   - Copy the code and paste it into the `Enter the code from the redirect URL:` prompt in the terminal where you ran the script
    - This will save the access and refresh token in a `.strava-credentials` locally so that you don't have to authorize the app again
 
 7. Schedule the script:
