@@ -1,0 +1,68 @@
+<style>
+  .progress-container {
+    width: 100%;
+    height: 25px;
+    background-color: #EEEEEE;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .progress {
+    width: 0%;
+    height: 100%;
+    background-color: #000000;
+  }
+</style>
+
+<div class="layout layout--col">
+  <div class="flex flex--col gap--space-between w-full h-full">
+    <div class="item">
+      <div class="meta"></div>
+      <div class="content">
+        <span class="value">{{ weekly_distance }} km / {{ weekly_goal }} km</span>
+        <span class="label">This week</span>
+      </div>
+    </div>
+
+    <div class="progress-container">
+      <div id="weekly-progress" class="progress"></div>
+    </div>
+
+    <div class="w-full b-h-gray-5"></div>
+
+    <div class="item">
+      <div class="meta"></div>
+      <div class="content">
+        <span class="value">{{ yearly_distance }} km / {{ yearly_goal }} km</span>
+        <span class="label">This year</span>
+      </div>
+    </div>
+
+    <div class="progress-container">
+      <div id="yearly-progress" class="progress"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function setProgress(elementId, percentage) {
+    // Ensure percentage is between 0 and 100
+    const clampedPercentage = Math.min(100, Math.max(0, percentage));
+
+    // Get the progress bar element
+    const progressBar = document.getElementById(elementId);
+
+    // Set the width to the percentage
+    progressBar.style.width = clampedPercentage + '%';
+  }
+
+  // Updated usage with Liquid calculations:
+  setProgress('weekly-progress', {{ weekly_distance | divided_by: weekly_goal | times: 100 }});
+  setProgress('yearly-progress', {{ yearly_distance | divided_by: yearly_goal | times: 100 }});
+</script>
+
+<div class="title_bar">
+  <img class="image" src="/images/plugins/trmnl--render.svg" />
+  <span class="title">Strava</span>
+  <span class="instance">Goals</span>
+</div>

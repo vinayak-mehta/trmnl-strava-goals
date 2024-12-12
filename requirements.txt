@@ -1,0 +1,5 @@
+humanize>=2.4.0
+python-dotenv==0.15.0
+requests>=2.20.0
+stravalib>=2.1
+PyYAML>=5.3.1
