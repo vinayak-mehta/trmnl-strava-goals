@@ -22,13 +22,11 @@ Push Strava goals to TRMNL
    TRMNL_PLUGIN_UUID=your_trmnl_plugin_uuid
    ```
 
-4. Set up your running goals:
-   - Update the `goals.yml` file with your weekly and yearly running goals
-
-      ```yaml
-      weekly: 30  # kilometers
-      yearly: 1500  # kilometers
-      ```
+4. Update the `goals.yml` file with your weekly and yearly running goals:
+   ```yaml
+   weekly: 30  # kilometers
+   yearly: 1500  # kilometers
+   ```
 
 5. Install dependencies:
    ```bash
