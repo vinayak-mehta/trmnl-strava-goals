@@ -83,7 +83,7 @@ class TokenManager:
         client = Client()
         auth_url = client.authorization_url(
             client_id=int(self.config.client_id),
-            redirect_uri="http://localhost:8282/authorized",
+            redirect_uri="http://localhost:8000/authorized",
             scope=["read_all", "profile:read_all", "activity:read_all"],
         )
         print(f"Please visit: {auth_url}")
