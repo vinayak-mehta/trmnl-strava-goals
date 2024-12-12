@@ -70,7 +70,9 @@ class TokenManager:
     def get_valid_token(self) -> TokenDict:
         """Returns a valid access token, performing auth flow if needed."""
         if not os.path.exists(self.config.credentials_file):
-            return self._perform_oauth_flow()
+            token = self._perform_oauth_flow()
+            self._save_token(token)
+            return token
 
         token = self._load_token()
         if self._needs_refresh(token):
