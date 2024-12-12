@@ -2,4 +2,4 @@
 
 Push Strava goals to TRMNL
 
-![trmnl-strava](trmnl-strava.png)
+![trmnl-strava-goals](trmnl-strava-goals.png)
