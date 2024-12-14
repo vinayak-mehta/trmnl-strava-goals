@@ -49,7 +49,7 @@ Push Strava goals to TRMNL
    - Add this line `0 0 * * * cd /path/to/trmnl-strava-goals && python send_strava_goals_to_trmnl.py`
 
    **GitHub Actions**:
-   - Run the script locally first to generate `.strava-credentials`
+   - Run the script locally first to generate the `.strava-credentials` file
    - Create an environment called `production` and add the following secrets:
       - `STRAVA_CLIENT_ID`: Your Strava Client ID
       - `STRAVA_CLIENT_SECRET`: Your Strava Client Secret
