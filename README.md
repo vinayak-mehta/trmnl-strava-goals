@@ -43,7 +43,20 @@ Push Strava goals to TRMNL
    - This will save the access and refresh token in a `.strava-credentials` locally so that you don't have to authorize the app again
 
 7. Schedule the script:
+
+   **Locally**:
    - Use `crontab -e` to schedule the script to run every day
+   - Add a line like: `0 0 * * * cd /path/to/trmnl-strava-goals && python send_strava_goals_to_trmnl.py`
+
+   **GitHub Actions**:
+   1. Run the script locally first to generate `.strava-credentials`
+   2. Create an environment called `production` and add the following secrets:
+      - `STRAVA_CLIENT_ID`: Your Strava Client ID
+      - `STRAVA_CLIENT_SECRET`: Your Strava Client Secret
+      - `STRAVA_CREDENTIALS`: The contents of your `.strava-credentials` file
+      - `TRMNL_PLUGIN_UUID`: Your TRMNL plugin UUID
+   3. Copy the `.github/workflows/daily-strava-goals-sync.yml` file to your repo
+   4. The action will run daily at midnight UTC by default. You can modify the cron schedule in the workflow file to run at your preferred time.
 
 ## Contributing
 
