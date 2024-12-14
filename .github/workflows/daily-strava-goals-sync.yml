@@ -26,5 +26,6 @@ jobs:
       env:
         STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
         STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
+        STRAVA_CREDENTIALS: ${{ secrets.STRAVA_CREDENTIALS }}
         TRMNL_PLUGIN_UUID: ${{ secrets.TRMNL_PLUGIN_UUID }}
       run: python send_strava_goals_to_trmnl.py
