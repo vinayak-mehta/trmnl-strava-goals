@@ -25,12 +25,8 @@ jobs:
 
     - name: Run Strava sync
       env:
-        CI: "true"
         STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
         STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
         STRAVA_CREDENTIALS: ${{ secrets.STRAVA_CREDENTIALS }}
         TRMNL_PLUGIN_UUID: ${{ secrets.TRMNL_PLUGIN_UUID }}
-      run: |
-        echo "Setting up credentials..."
-        echo "$STRAVA_CREDENTIALS" > .strava-credentials
-        python send_strava_goals_to_trmnl.py
+      run: python send_strava_goals_to_trmnl.py
