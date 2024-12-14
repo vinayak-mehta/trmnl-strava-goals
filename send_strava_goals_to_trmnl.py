@@ -12,6 +12,10 @@ from stravalib.client import Client
 
 load_dotenv()
 
+if os.environ.get("CI") and os.environ.get("STRAVA_CREDENTIALS"):
+    with open(".strava-credentials", "w") as f:
+        f.write(os.environ["STRAVA_CREDENTIALS"])
+
 
 class StravaError(Exception):
     """Base exception for all Strava-related errors."""
@@ -82,6 +86,12 @@ class TokenManager:
 
     def _perform_oauth_flow(self) -> TokenDict:
         """Performs the initial OAuth flow."""
+        if os.environ.get("CI"):
+            raise AuthError(
+                "Running in CI environment, please configure token manually first"
+            )
+
+        # Original OAuth flow for local development
         client = Client()
         auth_url = client.authorization_url(
             client_id=int(self.config.client_id),
