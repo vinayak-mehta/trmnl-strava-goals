@@ -46,17 +46,17 @@ Push Strava goals to TRMNL
 
    **Locally**:
    - Use `crontab -e` to schedule the script to run every day
-   - Add a line like: `0 0 * * * cd /path/to/trmnl-strava-goals && python send_strava_goals_to_trmnl.py`
+   - Add this line `0 0 * * * cd /path/to/trmnl-strava-goals && python send_strava_goals_to_trmnl.py`
 
    **GitHub Actions**:
-   1. Run the script locally first to generate `.strava-credentials`
-   2. Create an environment called `production` and add the following secrets:
+   - Run the script locally first to generate `.strava-credentials`
+   - Create an environment called `production` and add the following secrets:
       - `STRAVA_CLIENT_ID`: Your Strava Client ID
       - `STRAVA_CLIENT_SECRET`: Your Strava Client Secret
       - `STRAVA_CREDENTIALS`: The contents of your `.strava-credentials` file
       - `TRMNL_PLUGIN_UUID`: Your TRMNL plugin UUID
-   3. Copy the `.github/workflows/daily-strava-goals-sync.yml` file to your repo
-   4. The action will run daily at midnight UTC by default. You can modify the cron schedule in the workflow file to run at your preferred time.
+   - Copy the `.github/workflows/daily-strava-goals-sync.yml` file to your repo
+   - The action will run daily at midnight UTC by default. You can modify the cron schedule in the workflow file to run at your preferred time
 
 ## Contributing
 
