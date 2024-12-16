@@ -170,7 +170,7 @@ class Strava:
         runs = self._get_weekly_runs()
 
         if not runs:
-            return {}
+            return self._structure_summary(0, ytd_distance)
 
         week_distance = self._calculate_weekly_distance(runs)
         return self._structure_summary(week_distance, ytd_distance)
